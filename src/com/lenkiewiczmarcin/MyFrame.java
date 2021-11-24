@@ -31,13 +31,18 @@ public class MyFrame extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
 
-                // A = (525, 389) -> położenie przycisku run.
-                // metoda nextInt(bound), zwraca liczbę pseudolosową w zakresie od 0 do bounds.
-                int x = random.nextInt(525);
-                int y = random.nextInt(389);
+                int width = runBtn.getWidth();
 
-                // Kiedy kursor myszy najedzie na przycisk run, jego położenie zostanie zmienione.
-                runBtn.setLocation(x, y);
+                // Lewa strona przycisku jest "bezpieczna".
+                if(e.getX() >= width/2) {
+                    // A = (525, 389) -> położenie przycisku run.
+                    // metoda nextInt(bound), zwraca liczbę pseudolosową w zakresie od 0 do bounds.
+                    int x = random.nextInt(525);
+                    int y = random.nextInt(389);
+
+                    // Kiedy kursor myszy najedzie na przycisk run, jego położenie zostanie zmienione.
+                    runBtn.setLocation(x, y);
+                }
             }
         });
 
